@@ -1,0 +1,25 @@
+# Ignore node_modules/ if you're using a package manager like npm
+node_modules/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore log files
+*.log
+
+# Ignore temp files
+*.tmp
+*.swp
+
+# Ignore build output or temporary deployment files
+/dist/
+/build/
+
+/.env  # For environment variables (if applicable)
+
+/.idea/  # IDE specific files, such as IntelliJ or WebStorm
+
+# Ignore cache and config files created by editors
+.vscode/
+*.sublime-project
+*.sublime-workspace
