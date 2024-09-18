@@ -6,13 +6,44 @@ function findEmails() {
   document.getElementById('email-result').innerHTML = emails ? emails.join(', ') : 'Nenhum e-mail encontrado.';
 }
 
-// Função para validar CPF
+//função para validar um cpf
 function validateCPF() {
-  const cpf = document.getElementById('cpf').value;
-  const cpfRegex = /^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/;
-  const result = cpfRegex.test(cpf) ? 'CPF válido' : 'CPF inválido';
-  document.getElementById('cpf-result').innerHTML = result;
+  let cpf = document.getElementById('cpf').value;
+
+  // Remover caracteres não numéricos
+  cpf = cpf.replace(/[^\d]/g, '');
+
+  if (cpf.length !== 11) {
+    document.getElementById('cpf-result').innerHTML = 'CPF inválido. Tem caracteres não numéricos ou insuficientes.';
+    return;
+  }
+
+  // Verifica se todos os dígitos são iguais 
+  if (/^(\d)\1+$/.test(cpf)) {
+    document.getElementById('cpf-result').innerHTML = 'CPF inválido. Todos digitos são iguais';
+    return;
+  }
+
+  function calculateDigit(cpf, factor) {
+    let total = 0;
+    for (let i = 0; i < factor - 1; i++) {
+      total += parseInt(cpf.charAt(i)) * (factor - i);
+    }
+    let remainder = (total * 10) % 11;
+    return remainder === 10 ? 0 : remainder;
+  }
+
+  const digit1 = calculateDigit(cpf, 10);
+  const digit2 = calculateDigit(cpf, 11);
+
+  if (digit1 !== parseInt(cpf.charAt(9)) || digit2 !== parseInt(cpf.charAt(10))) {
+    document.getElementById('cpf-result').innerHTML = 'CPF inválido. Digitos verificadores não condizem.';
+    return;
+  }
+
+  document.getElementById('cpf-result').innerHTML = 'CPF válido';
 }
+
 
 // Função para substituir datas no formato DD/MM/AAAA para AAAA-MM-DD
 function replaceDates() {
