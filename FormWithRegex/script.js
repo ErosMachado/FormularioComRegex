@@ -48,10 +48,44 @@ function validateCPF() {
 // Função para substituir datas no formato DD/MM/AAAA para AAAA-MM-DD
 function replaceDates() {
   const text = document.getElementById('date-text').value;
-  const dateRegex = /(\d{2})\/(\d{2})\/(\d{4})/g;
-  const newText = text.replace(dateRegex, '$3-$2-$1');
+  const dateRegex = /\b(\d{2})\/(\d{2})\/(\d{4})\b/g;
+
+  const newText = text.replace(dateRegex, (match, day, month, year) => {
+    if (isValidDate(day, month, year)) {
+      return `${year}-${month}-${day}`; // Formato AAAA-MM-DD
+    } else {
+      alert(`A data "${match}" não é válida.`);
+      return match; // Mantém a data original caso não seja válida
+    }
+  });
+
+  if (text.match(dateRegex) === null) {
+    alert("Nenhuma data válida foi encontrada no texto.");
+  }
+
   document.getElementById('date-result').innerHTML = newText;
 }
+
+// Função para verificar se a data é válida
+function isValidDate(day, month, year) {
+  // Converte os valores para números
+  const dayNum = parseInt(day, 10);
+  const monthNum = parseInt(month, 10);
+  const yearNum = parseInt(year, 10);
+
+  // Verifica se o mês está no intervalo correto
+  if (monthNum < 1 || monthNum > 12) return false;
+
+  // Verifica os dias no mês considerando anos bissextos
+  const daysInMonth = [31, (isLeapYear(yearNum) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  return dayNum >= 1 && dayNum <= daysInMonth[monthNum - 1];
+}
+
+// Função auxiliar para verificar se um ano é bissexto
+function isLeapYear(year) {
+  return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
+
 
 // Função para validar senha complexa
 function validatePassword() {
