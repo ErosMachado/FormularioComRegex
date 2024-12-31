@@ -10,12 +10,13 @@
 
 <div class="container">
   <h2>Buscar e-mails em um texto</h2>
+  <label for="email-text">Insira um texto com e-mails:</label>
   <textarea id="email-text" rows="4" placeholder="Insira um texto com e-mails aqui..."></textarea>
   <button onclick="findEmails()">Buscar e-mails</button>
   <div class="result" id="email-result"></div>
 
   <h2>Validação de CPF</h2>
-  <input type="text" id="cpf" placeholder="Insira um CPF (com ou sem pontuação)">
+  <input type="text" id="cpf" placeholder="Insira um CPF (com ou sem pontuação)" onblur="validateCPF()">
   <button onclick="validateCPF()">Validar CPF</button>
   <div class="result" id="cpf-result"></div>
 
