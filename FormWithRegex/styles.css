@@ -50,3 +50,35 @@ button:hover {
   color: red;
   margin-top: 10px;
 }
+
+.btn {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #218838;
+}
+
+
+.result.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.result.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+}
+
