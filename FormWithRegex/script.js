@@ -94,3 +94,10 @@ function validatePassword() {
   const result = passwordRegex.test(password) ? 'Senha válida' : 'Senha inválida';
   document.getElementById('password-result').innerHTML = result;
 }
+
+
+function togglePasswordVisibility() {
+  const passwordField = document.getElementById('password');
+  const showPasswordCheckbox = document.getElementById('show-password');
+  passwordField.type = showPasswordCheckbox.checked ? 'text' : 'password';
+}
