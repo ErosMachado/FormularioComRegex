@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+
+<html lang="pt/br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,9 +26,20 @@
   <div class="result" id="date-result"></div>
 
   <h2>Validação de Senha Complexa</h2>
-  <input type="password" id="password" placeholder="Insira uma senha (8-20 caracteres, com letras, números e símbolos)">
-  <button onclick="validatePassword()">Validar Senha</button>
-  <div class="result" id="password-result"></div>
+<div style="position: relative;">
+  <input
+    type="password"
+    id="password"
+    placeholder="Insira uma senha (8-20 caracteres, com letras, números e símbolos)"
+  />
+  <label>
+    <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()" />
+    Mostrar senha
+  </label>
+</div>
+<button onclick="validatePassword()">Validar Senha</button>
+<div class="result" id="password-result"></div>
+
 </div>
 
 <script src="script.js" defer></script>
