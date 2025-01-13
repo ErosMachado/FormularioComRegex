@@ -4,11 +4,17 @@ A simple yet powerful web page project showcasing the practical applications of 
 
 # 🚀 Features
 Email Search: Extract email addresses from a given text.
+
 CPF Validation: Validate Brazilian CPFs, ensuring they follow the correct format and logic.
+
 Date Format Replacement: Convert dates from DD/MM/YYYY to YYYY-MM-DD.
+
 Password Validation: Check password strength against complex criteria (uppercase, lowercase, numbers, special characters).
+
 
 # 🛠️ Technologies Used
 HTML: Structure of the web page.
+
 CSS: Styling and layout to create a clean, user-friendly interface.
+
 JavaScript: Core logic for regex operations, input validation, and data manipulation.
