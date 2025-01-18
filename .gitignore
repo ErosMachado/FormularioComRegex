@@ -1,25 +1,60 @@
-# Ignore node_modules/ if you're using a package manager like npm
+# Node.js dependencies
 node_modules/
 
-# Ignore macOS system files
+# macOS system files
 .DS_Store
 
-# Ignore log files
+# Logs and temporary files
 *.log
-
-# Ignore temp files
 *.tmp
 *.swp
 
-# Ignore build output or temporary deployment files
+# Build outputs and temporary deployment files
 /dist/
 /build/
 
-/.env  # For environment variables (if applicable)
+# Environment variables
+.env
+.env.local
+.env.*.local
 
-/.idea/  # IDE specific files, such as IntelliJ or WebStorm
-
-# Ignore cache and config files created by editors
+# IDE and editor-specific files
+.idea/
 .vscode/
 *.sublime-project
 *.sublime-workspace
+
+# System-generated files
+Thumbs.db
+Desktop.ini
+
+# npm/Yarn debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Parcel cache
+.cache/
+
+# Next.js build files
+.next/
+
+# React Native files
+.expo/
+.expo-shared/
+
+# Ignore any test coverage reports
+coverage/
+
+# Ignore any generated documentation
+/docs/
+
+# Ignore any backup files created by editors
+*.bak
+*~
+*.orig
+
+# Ignore optional lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
