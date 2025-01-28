@@ -1,4 +1,4 @@
-# FormWithRegex
+# Form With Regex
 
 A simple yet powerful web page project showcasing the practical applications of regular expressions (regex) for searching, validating, and transforming data. This project is designed to be a hands-on tool for learning regex and demonstrating its use in real-world scenarios.
 
